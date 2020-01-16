@@ -5,11 +5,21 @@ const typeDefs = `
         "Count of total days skied druing a season"
         totalDays: Int
     }
+    type Mutation {
+        addDay: Int
+        removeDay: Int
+    }
 `
+
+let skiDays = 0;
 
 const resolvers = {
     Query: {
-        totalDays: () => 100
+        totalDays: () => skiDays
+    },
+    Mutation: {
+        addDay: () => ++skiDays,
+        removeDay: () => --skiDays
     }
 };
 
